@@ -11,7 +11,7 @@ data class Books (@PrimaryKey val id: Int,
                   val author: String,
                   @SerializedName("country")
                   val country: String,
-                  @SerializedName("image")
+                  @SerializedName("imageLink")
                   val imageLink: String,
                   @SerializedName("language")
                   val language: String,

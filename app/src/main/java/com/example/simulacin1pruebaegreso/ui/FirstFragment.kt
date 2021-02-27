@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -34,11 +35,14 @@ class FirstFragment : Fragment() {
         val adapter = BooksAdapter()
         binding.rvBooks.adapter = adapter
         binding.rvBooks.layoutManager = LinearLayoutManager(context)
-        viewModel.booksLiveDataDB.observe(viewLifecycleOwner, Observer {
+        viewModel.getBooksList().observe(viewLifecycleOwner, Observer {
             it?.let {
                 Log.d("listado", it.toString())
                 adapter.update(it)
             }
+        })
+        adapter.selectedItem().observe(viewLifecycleOwner, Observer {
+            Toast.makeText(context, "El autor es"+it.author, Toast.LENGTH_LONG).show()
         })
     }
 }

@@ -7,4 +7,8 @@ import retrofit2.http.GET
 interface BooksApi {
     @GET("books")
     suspend fun fetchBooksCoroutines(): Response<List<Books>>
+
+    @GET("bookDetail")
+    suspend fun fetchDetailBooksCoroutines(): Response<List<Books>>
+
 }
