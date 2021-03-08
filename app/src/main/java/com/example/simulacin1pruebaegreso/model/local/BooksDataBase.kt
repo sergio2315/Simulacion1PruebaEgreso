@@ -5,8 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.simulacin1pruebaegreso.model.pojo.Books
+import com.example.simulacin1pruebaegreso.model.pojo.DetailBooks
 
-@Database(entities = [Books::class],version = 1)
+@Database(entities = [Books::class, DetailBooks::class],version = 1)
 abstract class BooksDataBase: RoomDatabase() {
     abstract fun getBooksDao(): BooksDao
     companion object {

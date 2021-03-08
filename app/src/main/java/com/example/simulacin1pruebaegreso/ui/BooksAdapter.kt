@@ -11,7 +11,7 @@ import com.example.simulacin1pruebaegreso.model.pojo.Books
 
 class BooksAdapter: RecyclerView.Adapter<BooksAdapter.BooksAdapterVH>() {
     private var listBooks = listOf<Books>()
-    private var selectedItem  =  MutableLiveData<Books>()
+    private val selectedItem  =  MutableLiveData<Books>()
 
     fun selectedItem() = selectedItem
     fun update(list: List<Books>) {
@@ -30,7 +30,6 @@ class BooksAdapter: RecyclerView.Adapter<BooksAdapter.BooksAdapterVH>() {
         override fun onClick(v: View?) {
             selectedItem().value = listBooks[adapterPosition]
         }
-
 
     }
 

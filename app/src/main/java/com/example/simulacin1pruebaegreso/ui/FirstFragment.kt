@@ -42,7 +42,11 @@ class FirstFragment : Fragment() {
             }
         })
         adapter.selectedItem().observe(viewLifecycleOwner, Observer {
-            Toast.makeText(context, "El autor es"+it.author, Toast.LENGTH_LONG).show()
+            it?.let {
+                Toast.makeText(context, "El autor es"+it.author, Toast.LENGTH_LONG).show()
+                viewModel.selected(it)
+                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            }
         })
     }
 }
